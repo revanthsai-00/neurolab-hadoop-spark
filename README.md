@@ -21,7 +21,7 @@ Storage:
 Finally we can store the data as table in hive meatstore if required we can also create real time dashboards by using some dashboarding tools.
 
 To run this project :
-Firt we have to keep our files in the hdfs using the command
+First we have to keep our files in the hdfs using the command
 hdfs dfs -put users.csv /
 hdfs dfs -put movies.csv /
 hdfs dfs -put ratings.csv /
