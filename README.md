@@ -1,49 +1,31 @@
-# neurolab-hadoop-spark
+Movie Analytics Project:
 
-![image](https://user-images.githubusercontent.com/115451707/196919992-edcfea8b-e3f6-4f35-9398-43be66b5622d.png)
+The main goal of the project is to Analyze the data from various data sources and extract meaningful insights from the data and to know the audience interests.the data will be present in the hdfs storage layer in csv format with delimiter(::).We will be reading data from Hdfs layer and process the data using pyspark.
+
+Tech stack used :
+1.HDFS(Hadoop File System)
+2.Spark
+
+Architecture:
+![image](https://user-images.githubusercontent.com/64748921/223407219-56726e51-0308-48f3-8a7d-df62253ab9e3.png)
 
 
-### 1. Validate if hadoop is working or not
+Detailed  Explanation:
+For this project there are 3 data sources named as ratings.csv,users.csv,movies.csv.
+In the ratings.csv there are 4 columns userid , movieid , rating, timestamp. The userid gives the detail about the user,the movieid gives the information of the movie to which user gave rating. The rating will be in between 1 to 5. 
+In the users.csv we have 4 columns userid,gender,occupation,zip-code.The userid gives information about the user.the gender gives information regarding the gender of the user and the occupation gives the info regarding occupation of the user and zipcode gives the information about the zipcode of the user.
+In the movies.csv we have 3 columns. we have information regarding movieid,title genre.the moviid gives the id of the movie,the title represents the title for the movieand genre gives the information regarding to which genre it belongs to  this columnis again delimted by ‘|’.it has various values in that column like action, Thriller etc.
 
-Open terminal in vscode and execute below command
+Our data is picked from the hdfs layer and read by the spark engine. After reading the data We can perform various analytical queries on the data and extract useful business insights like top 10 viewed movies,distinct list of genres,to which genre audience are giving more ratings etc.So that the movie industry can analyze the trends and can know the audience interests. 
+Storage:
+Finally we can store the data as table in hive meatstore if required we can also create real time dashboards by using some dashboarding tools.
 
-1. Create a sample.txt file with content "This is hadoop and spark lab."
-```
-echo "This is hadoop and spark lab">sample.txt
-```
+To run this project :
+Firt we have to keep our files in the hdfs using the command
+hdfs dfs -put users.csv /
+hdfs dfs -put movies.csv /
+hdfs dfs -put ratings.csv /
 
-2. Upload your sample.txt file to Hadoop file system
-```
-hdfs dfs -put sample.txt /
-```
+After the files are placed in the hdfs we can run the script python main.py 
 
-3. List uploaded file in hadoop 
-```
-hdfs dfs -ls /
-```
-
-### 2. Validate if pyspark is working or not
-
-Execute below command
-```
-pyspark
-```
-Above command will launch pyspark terminal and you can execute pyspark command in interactive shell.
-
-Close your terminal
-
-### 3. Now let's run a script file "demo.py"
-
-Execute the spark script. 
-```
-python demo.py
-```
-
-## URL to view data in UI:
-
-Spark Master - <your_app_name>.ineuron.app:8080
-
-History Server - <your_app_name>.ineuron.app:18080
-
-Spark Worker Node - <your_app_name>.ineuron.app:8081
 
